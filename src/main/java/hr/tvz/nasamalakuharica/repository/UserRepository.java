@@ -1,16 +1,10 @@
 package hr.tvz.nasamalakuharica.repository;
 
 import hr.tvz.nasamalakuharica.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
-import java.util.Set;
 
-public interface UserRepository {
-    Set<User> findAll();
-
+public interface UserRepository  extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
-
-    Optional<User> save(User user);
-
-    void deleteByUsername(String username);
 }
