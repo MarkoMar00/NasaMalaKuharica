@@ -1,6 +1,6 @@
 package hr.tvz.nasamalakuharica.controller;
 
-import hr.tvz.nasamalakuharica.domain.User;
+import hr.tvz.nasamalakuharica.dto.UserDto;
 import hr.tvz.nasamalakuharica.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,12 +17,12 @@ public class UserController {
     UserService userService;
 
     @GetMapping("all")
-    public List<User> getAllUsers() {
+    public List<UserDto> getAllUsers() {
         return userService.findAllUsers();
     }
 
     @GetMapping("/")
-    public ResponseEntity<User> getUserByUserName(@RequestParam String username){
+    public ResponseEntity<UserDto> getUserByUserName(@RequestParam String username){
         return userService.findByUsername(username)
                 .map(
                         user -> ResponseEntity.status(HttpStatus.FOUND).body(user)
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public User saveUser(@RequestBody User user){
-        return userService.save(user);
+    public UserDto saveUser(@RequestBody UserDto userDto){
+        return userService.save(userDto);
     }
 }

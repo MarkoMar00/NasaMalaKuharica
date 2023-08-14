@@ -1,15 +1,15 @@
 package hr.tvz.nasamalakuharica.service;
 
-import hr.tvz.nasamalakuharica.domain.User;
+import hr.tvz.nasamalakuharica.dto.UserDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
-    List<User> findAllUsers();
+    List<UserDto> findAllUsers();
 
-    Optional<User> findByUsername(String username);
+    Optional<UserDto> findByUsername(String username);
 
-    User save(User user);
+    UserDto save(UserDto userDto);
 }
