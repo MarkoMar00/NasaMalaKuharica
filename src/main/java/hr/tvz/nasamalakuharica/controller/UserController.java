@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
+@CrossOrigin(origins = "http://localhost:4200")
 @AllArgsConstructor
 public class UserController {
 
@@ -25,7 +26,7 @@ public class UserController {
     public ResponseEntity<UserDto> getUserByUserName(@RequestParam String username){
         return userService.findByUsername(username)
                 .map(
-                        user -> ResponseEntity.status(HttpStatus.FOUND).body(user)
+                        user -> ResponseEntity.status(HttpStatus.OK).body(user)
                 ).orElseGet(
                         () -> ResponseEntity.status(HttpStatus.NOT_FOUND).build()
                 );
