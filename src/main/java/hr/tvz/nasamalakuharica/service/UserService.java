@@ -11,5 +11,5 @@ public interface UserService {
 
     Optional<UserDto> findByUsername(String username);
 
-    UserDto save(UserDto userDto);
+    Optional<UserDto> save(UserDto userDto);
 }

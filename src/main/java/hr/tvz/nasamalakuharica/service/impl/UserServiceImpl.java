@@ -25,12 +25,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<UserDto> findByUsername(String username) {
+
         return Optional.of(mapToDto(userRepository.findByUsername(username).get()));
     }
 
     @Override
-    public UserDto save(UserDto userDto) {
-        return mapToDto(userRepository.save(mapToUser(userDto)));
+    public Optional<UserDto> save(UserDto userDto) {
+        return Optional.of(mapToDto(userRepository.save(mapToUser(userDto))));
     }
 
     private User mapToUser(UserDto userDto){

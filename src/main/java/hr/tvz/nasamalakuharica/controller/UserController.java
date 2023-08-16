@@ -33,7 +33,12 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public UserDto saveUser(@RequestBody UserDto userDto){
-        return userService.save(userDto);
+    public ResponseEntity<UserDto> saveUser(@RequestBody UserDto userDto){
+        return userService.save(userDto)
+                .map(
+                        user -> ResponseEntity.status(HttpStatus.CREATED).body(user)
+                ).orElseGet(
+                        () -> ResponseEntity.status(HttpStatus.CONFLICT).build()
+                );
     }
 }
