@@ -21,7 +21,7 @@ public class RecepyController {
     public ResponseEntity<RecepyDto> findRecepyById(@RequestParam Long id) {
         return recepyService.getRecepyById(id)
                 .map(
-                        recepyDto -> ResponseEntity.status(HttpStatus.FOUND).body(recepyDto)
+                        recepyDto -> ResponseEntity.status(HttpStatus.OK).body(recepyDto)
                 ).orElseGet(
                         () -> ResponseEntity.status(HttpStatus.NOT_FOUND).build()
                 );
@@ -41,7 +41,7 @@ public class RecepyController {
     public ResponseEntity<List<RecepyDto>> findRecepiesByName(@RequestParam String name) {
         return recepyService.findByName(name)
                 .map(
-                        recepies -> ResponseEntity.status(HttpStatus.FOUND).body(recepies)
+                        recepies -> ResponseEntity.status(HttpStatus.OK).body(recepies)
                 ).orElseGet(
                         () -> ResponseEntity.status(HttpStatus.NOT_FOUND).build()
                 );
