@@ -17,6 +17,21 @@ public class RecepyController {
 
     RecepyService recepyService;
 
+    @GetMapping("/")
+    public ResponseEntity<RecepyDto> findRecepyById(@RequestParam Long id) {
+        return recepyService.getRecepyById(id)
+                .map(
+                        recepyDto -> ResponseEntity.status(HttpStatus.FOUND).body(recepyDto)
+                ).orElseGet(
+                        () -> ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+                );
+    }
+
+    @GetMapping("/all")
+    public List<RecepyDto> findAllRecepies() {
+        return recepyService.findAllRecepies();
+    }
+
     @GetMapping("/user")
     public List<RecepyDto> findRecepiesbyUserId (@RequestParam Long id) {
         return recepyService.findAllByUserId(id);

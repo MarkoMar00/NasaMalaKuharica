@@ -7,6 +7,10 @@ import java.util.Optional;
 
 public interface RecepyService {
 
+    Optional<RecepyDto> getRecepyById(Long id);
+
+    List<RecepyDto> findAllRecepies();
+
     List<RecepyDto> findAllByUserId(Long userId);
 
     Optional<List<RecepyDto>> findByName(String name);

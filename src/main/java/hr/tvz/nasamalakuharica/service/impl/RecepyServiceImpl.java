@@ -21,6 +21,17 @@ public class RecepyServiceImpl implements RecepyService {
     UserRepository userRepository;
 
     @Override
+    public Optional<RecepyDto> getRecepyById(Long id) {
+        return Optional.of(mapToDto(recepyRepository.findById(id).get()));
+    }
+
+    @Override
+    public List<RecepyDto> findAllRecepies() {
+        return recepyRepository.findAll()
+                .stream().map(this::mapToDto).collect(Collectors.toList());
+    }
+
+    @Override
     public List<RecepyDto> findAllByUserId(Long userId) {
         return recepyRepository.findAllByUser_Id(userId)
                 .stream().map(this::mapToDto).collect(Collectors.toList());
