@@ -18,7 +18,7 @@ public class RecipeController {
     RecipeService recipeService;
 
     @GetMapping("/")
-    public ResponseEntity<RecipeDto> findRecepyById(@RequestParam Long id) {
+    public ResponseEntity<RecipeDto> findRecipeById(@RequestParam Long id) {
         return recipeService.getRecipeById(id)
                 .map(
                         recipeDto -> ResponseEntity.status(HttpStatus.OK).body(recipeDto)
@@ -28,17 +28,17 @@ public class RecipeController {
     }
 
     @GetMapping("/all")
-    public List<RecipeDto> findAllRecepies() {
+    public List<RecipeDto> findAllRecipes() {
         return recipeService.findAllRecipes();
     }
 
     @GetMapping("/user")
-    public List<RecipeDto> findRecepiesbyUserId (@RequestParam Long id) {
+    public List<RecipeDto> findRecipesbyUserId(@RequestParam Long id) {
         return recipeService.findAllByUserId(id);
     }
 
     @GetMapping("/name")
-    public ResponseEntity<List<RecipeDto>> findRecepiesByName(@RequestParam String name) {
+    public ResponseEntity<List<RecipeDto>> findRecipesByName(@RequestParam String name) {
         return recipeService.findByName(name)
                 .map(
                         recepies -> ResponseEntity.status(HttpStatus.OK).body(recepies)

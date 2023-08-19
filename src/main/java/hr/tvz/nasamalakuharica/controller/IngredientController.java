@@ -16,7 +16,7 @@ public class IngredientController {
     IngredientService ingredientService;
 
     @GetMapping("/recipe")
-    public List<IngredientDto> findIngredientsByRecepyId (@RequestParam Long id) {
+    public List<IngredientDto> findIngredientsByRecipeId(@RequestParam Long id) {
         return ingredientService.getAllByRecipeId(id);
     }
 
