@@ -15,13 +15,13 @@ public class IngredientController {
 
     IngredientService ingredientService;
 
-    @GetMapping("/recepy")
+    @GetMapping("/recipe")
     public List<IngredientDto> findIngredientsByRecepyId (@RequestParam Long id) {
-        return ingredientService.getAllByRecepyId(id);
+        return ingredientService.getAllByRecipeId(id);
     }
 
-    @PostMapping("/save/{recepyId}/")
-    public IngredientDto saveIngredient(@PathVariable(value = "recepyId") Long recepyId, @RequestBody IngredientDto ingredientDto) {
-        return ingredientService.save(recepyId, ingredientDto);
+    @PostMapping("/save/{recipeId}/")
+    public IngredientDto saveIngredient(@PathVariable(value = "recipeId") Long recipeId, @RequestBody IngredientDto ingredientDto) {
+        return ingredientService.save(recipeId, ingredientDto);
     }
 }

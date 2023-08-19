@@ -17,12 +17,13 @@ public class User {
 
     private String email;
 
+    @Column(unique = true)
     private String username;
 
     private String password;
 
     @OneToMany(mappedBy = "user")
-    private List<Recepy> recepies;
+    private List<Recipe> recepies;
 
     public void setId(Long id) {
         this.id = id;
@@ -74,11 +75,11 @@ public class User {
         this.password = password;
     }
 
-    public List<Recepy> getRecepies() {
+    public List<Recipe> getRecepies() {
         return recepies;
     }
 
-    public void setRecepies(List<Recepy> recepies) {
+    public void setRecepies(List<Recipe> recepies) {
         this.recepies = recepies;
     }
 

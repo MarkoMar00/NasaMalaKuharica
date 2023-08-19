@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "RECEPIES")
-public class Recepy {
+@Table(name = "RECIPES")
+public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,10 +26,10 @@ public class Recepy {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "recepy")
+    @OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredients;
 
-    public Recepy() {}
+    public Recipe() {}
 
     public void setId(Long id) {
         this.id = id;

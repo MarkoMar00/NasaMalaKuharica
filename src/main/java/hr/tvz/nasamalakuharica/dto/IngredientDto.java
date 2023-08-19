@@ -1,6 +1,5 @@
 package hr.tvz.nasamalakuharica.dto;
 
-import hr.tvz.nasamalakuharica.domain.Recepy;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

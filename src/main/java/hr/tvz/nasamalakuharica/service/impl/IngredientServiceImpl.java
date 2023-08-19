@@ -1,10 +1,10 @@
 package hr.tvz.nasamalakuharica.service.impl;
 
 import hr.tvz.nasamalakuharica.domain.Ingredient;
-import hr.tvz.nasamalakuharica.domain.Recepy;
+import hr.tvz.nasamalakuharica.domain.Recipe;
 import hr.tvz.nasamalakuharica.dto.IngredientDto;
 import hr.tvz.nasamalakuharica.repository.IngredientRepository;
-import hr.tvz.nasamalakuharica.repository.RecepyRepository;
+import hr.tvz.nasamalakuharica.repository.RecipeRepository;
 import hr.tvz.nasamalakuharica.service.IngredientService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
 public class IngredientServiceImpl implements IngredientService {
 
     IngredientRepository ingredientRepository;
-    RecepyRepository recepyRepository;
+    RecipeRepository recipeRepository;
 
     @Override
-    public List<IngredientDto> getAllByRecepyId(Long recepyId) {
-        return ingredientRepository.getAllByRecepy_Id(recepyId)
+    public List<IngredientDto> getAllByRecipeId(Long recepyId) {
+        return ingredientRepository.getAllByRecipe_Id(recepyId)
                 .stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
@@ -29,9 +29,9 @@ public class IngredientServiceImpl implements IngredientService {
     public IngredientDto save(Long recepyId, IngredientDto ingredientDto) {
         Ingredient ingredient = mapToIngredient(ingredientDto);
 
-        Recepy recepy = recepyRepository.findById(recepyId).orElseThrow();
+        Recipe recipe = recipeRepository.findById(recepyId).orElseThrow();
 
-        ingredient.setRecepy(recepy);
+        ingredient.setRecepy(recipe);
 
         Ingredient newIngredient = ingredientRepository.save(ingredient);
 
