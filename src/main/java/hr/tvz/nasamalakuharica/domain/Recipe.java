@@ -18,6 +18,7 @@ public class Recipe {
 
     private Integer preparationTimeMinutes;
 
+    @Column(columnDefinition = "TEXT")
     private String instructions;
 
     private LocalDate date;

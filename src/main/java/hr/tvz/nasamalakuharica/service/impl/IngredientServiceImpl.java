@@ -43,6 +43,7 @@ public class IngredientServiceImpl implements IngredientService {
         ingredient.setId(ingredientDto.getId());
         ingredient.setName(ingredientDto.getName());
         ingredient.setAmount(ingredientDto.getAmount());
+        ingredient.setUnit(ingredientDto.getUnit());
 
         return ingredient;
     }
@@ -52,6 +53,7 @@ public class IngredientServiceImpl implements IngredientService {
         ingredientDto.setId(ingredient.getId());
         ingredientDto.setName(ingredient.getName());
         ingredientDto.setAmount(ingredient.getAmount());
+        ingredientDto.setUnit(ingredient.getUnit());
 
         return ingredientDto;
     }
