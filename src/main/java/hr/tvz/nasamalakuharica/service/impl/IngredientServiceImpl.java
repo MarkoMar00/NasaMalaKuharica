@@ -38,6 +38,13 @@ public class IngredientServiceImpl implements IngredientService {
         return mapToDto(newIngredient);
     }
 
+    @Override
+    public void delete(Long ingredientId) {
+        Ingredient ingredient = ingredientRepository.findById(ingredientId).orElseThrow();
+
+        ingredientRepository.delete(ingredient);
+    }
+
     private Ingredient mapToIngredient(IngredientDto ingredientDto){
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ingredientDto.getId());

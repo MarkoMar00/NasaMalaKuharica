@@ -8,4 +8,6 @@ public interface IngredientService {
     List<IngredientDto> getAllByRecipeId(Long recepyId);
 
     IngredientDto save(Long recepyId, IngredientDto ingredientDto);
+
+    void delete(Long ingredientId);
 }

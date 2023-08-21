@@ -24,4 +24,9 @@ public class IngredientController {
     public IngredientDto saveIngredient(@PathVariable(value = "recipeId") Long recipeId, @RequestBody IngredientDto ingredientDto) {
         return ingredientService.save(recipeId, ingredientDto);
     }
+
+    @DeleteMapping("/delete/{ingredientId}")
+    public void deleteIngredient(@PathVariable(value = "ingredientId") Long ingredientId) {
+        ingredientService.delete(ingredientId);
+    }
 }
