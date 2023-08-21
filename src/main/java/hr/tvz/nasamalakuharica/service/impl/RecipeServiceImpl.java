@@ -56,6 +56,28 @@ public class RecipeServiceImpl implements RecipeService {
         return mapToDto(newRecipe);
     }
 
+    @Override
+    public RecipeDto updateRecipe(Long recipeId, RecipeDto recipeDto) {
+
+        Recipe recipe = recipeRepository.findById(recipeId).orElseThrow();
+
+        recipe.setName(recipeDto.getName());
+        recipe.setPortions(recipeDto.getPortions());
+        recipe.setPreparationTimeMinutes(recipeDto.getPreparationTimeMinutes());
+        recipe.setInstructions(recipeDto.getInstructions());
+
+        Recipe updatedRecipe = recipeRepository.save(recipe);
+
+        return mapToDto(updatedRecipe);
+    }
+
+    @Override
+    public void deleteRecipe(Long recipeId) {
+        Recipe recipe = recipeRepository.findById(recipeId).orElseThrow();
+
+        recipeRepository.delete(recipe);
+    }
+
     private Recipe mapToRecepy (RecipeDto recipeDto) {
         Recipe recipe = new Recipe();
         recipe.setId(recipeDto.getId());

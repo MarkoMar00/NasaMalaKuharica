@@ -15,5 +15,9 @@ public interface RecipeService {
 
     Optional<List<RecipeDto>> findByName(String name);
 
-    RecipeDto save(Long userId, RecipeDto recepy);
+    RecipeDto save(Long userId, RecipeDto recipeDto);
+
+    RecipeDto updateRecipe(Long recipeId, RecipeDto recipeDto);
+
+    void deleteRecipe(Long recipeId);
 }

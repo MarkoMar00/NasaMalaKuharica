@@ -52,5 +52,13 @@ public class RecipeController {
         return recipeService.save(userId, recipeDto);
     }
 
+    @PutMapping("/update/{recipeId}")
+    public RecipeDto update(@PathVariable(value = "recipeId") Long recipeId, @RequestBody RecipeDto recipeDto) {
+        return recipeService.updateRecipe(recipeId, recipeDto);
+    }
 
+    @DeleteMapping("/delete/{recipeId}")
+    public void deleteRecipe(@PathVariable(value = "recipeId") Long recipeId) {
+        recipeService.deleteRecipe(recipeId);
+    }
 }
