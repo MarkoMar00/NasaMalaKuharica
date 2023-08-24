@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JwtGenerator {
 
-    public static final Long JWT_EXPIRATION = 60000L;
+    public static final Long JWT_EXPIRATION = 600000L;
 
     public static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
