@@ -1,6 +1,5 @@
 package hr.tvz.nasamalakuharica.security;
 
-import hr.tvz.nasamalakuharica.CORSFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
