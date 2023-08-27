@@ -20,8 +20,8 @@ public class IngredientServiceImpl implements IngredientService {
     RecipeRepository recipeRepository;
 
     @Override
-    public List<IngredientDto> getAllByRecipeId(Long recepyId) {
-        return ingredientRepository.getAllByRecipe_Id(recepyId)
+    public List<IngredientDto> getAllByRecipeId(Long recipeId) {
+        return ingredientRepository.getAllByRecipe_Id(recipeId)
                 .stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
